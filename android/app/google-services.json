@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "200716967013",
+    "project_id": "pharmacytrial-265b6",
+    "storage_bucket": "pharmacytrial-265b6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200716967013:android:c5957ad9466efe451f7a8c",
+        "android_client_info": {
+          "package_name": "com.example.pharmyash.pharmacy_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "200716967013-v1f6t5vjffo1lj8a4i96rddpvlqm576m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-6ekiGUPa4EfsFmwQQqdDvVTVpu_ak5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "200716967013-v1f6t5vjffo1lj8a4i96rddpvlqm576m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
