@@ -80,6 +80,7 @@ class _AccountState extends State<Account> {
               height: MediaQuery.of(context).size.height - 210,
               child: Expanded(
                 child: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
                   child: Padding(
                     padding:
                         const EdgeInsets.only(left: 10, right: 10, top: 15),
@@ -102,7 +103,7 @@ class _AccountState extends State<Account> {
                           ),
                         ),
                         AccountModel(
-                          name: 'Cart',
+                          name: 'My Cart',
                           icon: Icon(
                             Icons.shopping_cart,
                             size: 35,
@@ -117,6 +118,20 @@ class _AccountState extends State<Account> {
                             color: primaryGreen,
                           ),
                         ),
+                        AccountModel(
+                            name: 'Contact Us',
+                            icon: Icon(
+                              Icons.phone,
+                              size: 30,
+                              color: primaryGreen,
+                            )),
+                        AccountModel(
+                            name: 'Email Here',
+                            icon: Icon(
+                              Icons.email,
+                              size: 30,
+                              color: primaryGreen,
+                            )),
                       ],
                     ),
                   ),
