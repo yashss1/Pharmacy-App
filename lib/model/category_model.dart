@@ -1,3 +1,4 @@
+import 'package:pharmacy_app/constants.dart';
 import 'package:pharmacy_app/model/CategoryClass.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -27,20 +28,21 @@ class CategoryModel extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.black12,
+                  color: secondary,
                 ),
                 margin: EdgeInsets.all(9),
                 height: 100,
                 width: 100,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 30, top: 10),
+                  padding: const EdgeInsets.only(left: 35, top: 8),
                   child: Column(
                     children: [
                       Text(
                         categoryClass.name,
                         style: TextStyle(
-                          fontSize: 15,
-                        ),
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Circular'),
                       ),
                     ],
                   ),
@@ -50,9 +52,10 @@ class CategoryModel extends StatelessWidget {
           ),
           Positioned(
             right: 40,
+            bottom: 2,
             child: Image.asset(
               categoryClass.icon,
-              height: 150,
+              height: categoryClass.height,
             ),
           ),
           Positioned(

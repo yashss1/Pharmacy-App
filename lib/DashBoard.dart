@@ -7,10 +7,15 @@ import 'package:pharmacy_app/screens/Account.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
 class DashBoard extends StatefulWidget {
-  const DashBoard({Key? key, required this.city, required this.state})
+  const DashBoard(
+      {Key? key,
+      required this.city,
+      required this.state,
+      required this.medJSON1})
       : super(key: key);
 
   final String city, state;
+  final medJSON1;
 
   @override
   _DashBoardState createState() => _DashBoardState();
@@ -46,7 +51,11 @@ class _DashBoardState extends State<DashBoard> {
         pageChanged(index);
       },
       children: <Widget>[
-        Home(city: widget.city, state: widget.state),
+        Home(
+          city: widget.city,
+          state: widget.state,
+          medJSON1: widget.medJSON1,
+        ),
         Diag(city: widget.city, state: widget.state),
         Account(),
       ],

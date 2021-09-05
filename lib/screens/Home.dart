@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:pharmacy_app/model/CategoryClass.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pharmacy_app/model/account_model.dart';
 import 'package:pharmacy_app/model/category_model.dart';
 import 'package:pharmacy_app/constants.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
@@ -9,13 +10,19 @@ import 'package:pharmacy_app/ResultPage.dart';
 import 'package:pharmacy_app/constants.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:pharmacy_app/services/networking.dart';
+import 'package:pharmacy_app/model/searched_medicine_model.dart';
 import 'package:pharmacy_app/services/location.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key, required this.city, required this.state})
+  const Home(
+      {Key? key,
+      required this.city,
+      required this.state,
+      required this.medJSON1})
       : super(key: key);
 
   final String city, state;
+  final medJSON1;
 
   @override
   _HomeState createState() => _HomeState();
@@ -119,7 +126,7 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                   Text(
-                                    'Market',
+                                    'Mart',
                                     style: TextStyle(
                                       fontSize: 18,
                                     ),
@@ -196,7 +203,7 @@ class _HomeState extends State<Home> {
                             msg = value;
                           },
                           decoration: kTextFieldDecoration.copyWith(
-                            hintText: "Enter Medicine",
+                            hintText: "Enter Symtoms eg.Fatigue, Vomiting",
                           ),
                         ),
                       ),
@@ -240,11 +247,12 @@ class _HomeState extends State<Home> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
                           Padding(
-                            padding: const EdgeInsets.all(18.0),
+                            padding: const EdgeInsets.only(
+                                left: 18, right: 18, top: 18),
                             child: Text(
-                              'Category : ',
+                              'Shop By Category : ',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -262,8 +270,47 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                           Padding(
+                            padding: const EdgeInsets.only(
+                                left: 18, right: 18, top: 28),
+                            child: Text(
+                              'On Demand : ',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 15),
+                            height: 450,
+                            child: ListView.builder(
+                                physics: BouncingScrollPhysics(),
+                                itemCount: 4,
+                                itemBuilder: (context, index) {
+                                  return SearchedMM(
+                                    name: widget.medJSON1['results'][index]
+                                            ['patient']['drug'][0]
+                                        ['medicinalproduct'],
+                                    form: widget.medJSON1['results'][index]
+                                            ['patient']['drug'][0]
+                                        ['drugdosageform'],
+                                    quantity: widget.medJSON1['results'][index]
+                                            ['patient']['drug'][0]
+                                        ['drugstructuredosagenumb'],
+                                    id: widget.medJSON1['results'][index]
+                                            ['patient']['drug'][0]
+                                        ['drugstructuredosageunit'],
+                                    medJson: widget.medJSON1,
+                                    indice: index,
+                                    city: widget.city,
+                                  );
+                                }),
+                          ),
+                          Padding(
                             padding: const EdgeInsets.symmetric(
-                                vertical: 20, horizontal: 5),
+                              vertical: 25,
+                              horizontal: 5,
+                            ),
                             child: ImageSlideshow(
                               width: double.infinity,
                               height: 200,
@@ -271,7 +318,7 @@ class _HomeState extends State<Home> {
                               indicatorColor: Colors.blue,
                               indicatorBackgroundColor: Colors.grey,
                               onPageChanged: (value) {
-                                debugPrint('Page changed: $value');
+                                // debugPrint('Page changed: $value');
                               },
                               autoPlayInterval: 3000,
                               isLoop: true,
@@ -291,6 +338,20 @@ class _HomeState extends State<Home> {
                               ],
                             ),
                           ),
+                          AccountModel(
+                              name: 'Contact Us',
+                              icon: Icon(
+                                Icons.phone,
+                                size: 30,
+                                color: primaryGreen,
+                              )),
+                          AccountModel(
+                              name: 'Email Here',
+                              icon: Icon(
+                                Icons.email,
+                                size: 30,
+                                color: primaryGreen,
+                              )),
                         ],
                       ),
                     ),

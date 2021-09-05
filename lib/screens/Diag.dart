@@ -251,7 +251,7 @@ class _DiagState extends State<Diag> {
                             height: 100,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
-                              color: Colors.grey,
+                              color: primaryGreen,
                             ),
                             child: Column(
                               children: [

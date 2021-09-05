@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pharmacy_app/screens/loading_screen.dart';
+import 'package:pharmacy_app/screens/login_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
             elevation: 0,
           ),
           scaffoldBackgroundColor: Colors.white),
-      home: LoadingScreen(),
+      home: LoginScreen(),
     );
   }
 }

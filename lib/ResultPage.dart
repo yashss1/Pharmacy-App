@@ -80,7 +80,7 @@ class _ResultPageState extends State<ResultPage> {
                                     ),
                                   ),
                                   Text(
-                                    'Market',
+                                    'Mart',
                                     style: TextStyle(
                                       fontSize: 18,
                                     ),

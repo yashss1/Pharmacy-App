@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pharmacy_app/DashBoard.dart';
 import 'package:pharmacy_app/screens/Home.dart';
 import 'package:pharmacy_app/services/location.dart';
+import 'package:pharmacy_app/services/networking.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -24,11 +25,19 @@ class _LoadingScreenState extends State<LoadingScreen> {
     Location location = Location();
     await location.getCurrentLocation();
 
+    NetworkHelper networkHelper1 =
+        NetworkHelper('https://api.fda.gov/drug/event.json?limit=5');
+    var medData1 = await networkHelper1.getData();
+
     city = location.city;
     state = location.state;
 
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return DashBoard(city: city, state: state);
+      return DashBoard(
+        city: city,
+        state: state,
+        medJSON1: medData1,
+      );
     }));
   }
 
