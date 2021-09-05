@@ -126,7 +126,7 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                   Text(
-                                    'Market',
+                                    'Mart',
                                     style: TextStyle(
                                       fontSize: 18,
                                     ),

@@ -194,7 +194,8 @@ class _DetailMedState extends State<DetailMed> {
                     ],
                   ),
                 ),
-                Expanded(
+                Container(
+                  height: 300,
                   child: SingleChildScrollView(
                     physics: BouncingScrollPhysics(),
                     child: Column(
